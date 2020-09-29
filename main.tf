@@ -179,6 +179,7 @@ module "cluster" {
   subnetwork               = var.subnetwork
   cluster_ipv4_cidr_block  = var.cluster_ipv4_cidr_block
   services_ipv4_cidr_block = var.services_ipv4_cidr_block
+  control_plane_cidr_block = var.control_plane_cidr_block
 }
 
 // ----------------------------------------------------------------------------

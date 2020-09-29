@@ -172,6 +172,11 @@ variable "subnetwork" {
   default     = "default"
 }
 
+variable "control_plane_cidr_block" {
+  description = "The cidr range that the kubernetes control plane will be listening on"
+  type        = string
+}
+
 // ----------------------------------------------------------------------------
 // jx-requirements.yml specific variables only used for template rendering
 // ----------------------------------------------------------------------------
