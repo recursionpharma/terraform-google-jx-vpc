@@ -177,6 +177,12 @@ variable "control_plane_cidr_block" {
   type        = string
 }
 
+variable "control_plane_authorized_networks" {
+  description = "The authorized networks that can speak to a public k8s control plane"
+  type        = map(string)
+  default     = {}
+}
+
 // ----------------------------------------------------------------------------
 // jx-requirements.yml specific variables only used for template rendering
 // ----------------------------------------------------------------------------

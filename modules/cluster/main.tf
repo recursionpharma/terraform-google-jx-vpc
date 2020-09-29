@@ -52,6 +52,16 @@ resource "google_container_cluster" "jx_cluster" {
     master_ipv4_cidr_block  = var.control_plane_cidr_block
   }
 
+  master_authorized_networks_config {
+    dynamic "cidr_blocks" {
+      for_each = var.control_plane_authorized_networks
+      content {
+        display_name = cidr_blocks.key
+        cidr_block   = cidr_blocks.value
+      }
+    }
+  }
+
   network    = var.network
   subnetwork = var.subnetwork
 

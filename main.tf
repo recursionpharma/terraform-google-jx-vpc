@@ -175,11 +175,12 @@ module "cluster" {
   jx_bot_username = var.jx_bot_username
   jx_bot_token    = var.jx_bot_token
 
-  network                  = var.network
-  subnetwork               = var.subnetwork
-  cluster_ipv4_cidr_block  = var.cluster_ipv4_cidr_block
-  services_ipv4_cidr_block = var.services_ipv4_cidr_block
-  control_plane_cidr_block = var.control_plane_cidr_block
+  network                           = var.network
+  subnetwork                        = var.subnetwork
+  cluster_ipv4_cidr_block           = var.cluster_ipv4_cidr_block
+  services_ipv4_cidr_block          = var.services_ipv4_cidr_block
+  control_plane_cidr_block          = var.control_plane_cidr_block
+  control_plane_authorized_networks = var.control_plane_authorized_networks
 }
 
 // ----------------------------------------------------------------------------
