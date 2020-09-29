@@ -52,19 +52,12 @@ resource "google_container_cluster" "jx_cluster" {
     master_ipv4_cidr_block  = var.control_plane_cidr_block
   }
 
-  master_authorized_networks_config {
-    dynamic "cidr_blocks" {
-      for_each = var.control_plane_authorized_networks
-      content {
-        display_name = cidr_blocks.key
-        cidr_block   = cidr_blocks.value
-      }
-    }
-  }
+  network    = var.network
+  subnetwork = var.subnetwork
 
   ip_allocation_policy {
-    cluster_secondary_range_name  = var.cluster_secondary_range_name
-    services_secondary_range_name = var.services_secondary_range_name
+    cluster_ipv4_cidr_block  = var.cluster_ipv4_cidr_block
+    services_ipv4_cidr_block = var.services_ipv4_cidr_block
   }
 
   node_config {
