@@ -174,6 +174,11 @@ module "cluster" {
   jx_git_url      = var.jx_git_url
   jx_bot_username = var.jx_bot_username
   jx_bot_token    = var.jx_bot_token
+
+  network                  = var.network
+  subnetwork               = var.subnetwork
+  cluster_ipv4_cidr_block  = var.cluster_ipv4_cidr_block
+  services_ipv4_cidr_block = var.services_ipv4_cidr_block
 }
 
 // ----------------------------------------------------------------------------
