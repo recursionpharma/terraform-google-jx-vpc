@@ -204,3 +204,24 @@ variable "jx_bot_token" {
   type        = string
   default     = ""
 }
+
+variable "cluster_secondary_range_name" {
+  description = "The name of the secondary ip range of the subnet to use for cluster pods"
+  type        = string
+}
+
+variable "services_secondary_range_name" {
+  description = "The name of the secondary ip range of the subnet to use for cluster services"
+  type        = string
+}
+
+variable "control_plane_cidr_block" {
+  description = "The cidr range that the kubernetes control plane will be listening on"
+  type        = string
+}
+
+variable "control_plane_authorized_networks" {
+  description = "The authorized networks that can speak to a public k8s control plane"
+  type        = map(string)
+  default     = {}
+}

@@ -46,6 +46,27 @@ resource "google_container_cluster" "jx_cluster" {
     }
   }
 
+  private_cluster_config {
+    enable_private_endpoint = true
+    enable_private_nodes    = true
+    master_ipv4_cidr_block  = var.control_plane_cidr_block
+  }
+
+  master_authorized_networks_config {
+    dynamic "cidr_blocks" {
+      for_each = var.control_plane_authorized_networks
+      content {
+        display_name = cidr_blocks.key
+        cidr_block   = cidr_blocks.value
+      }
+    }
+  }
+
+  ip_allocation_policy {
+    cluster_secondary_range_name  = var.cluster_secondary_range_name
+    services_secondary_range_name = var.services_secondary_range_name
+  }
+
   node_config {
     preemptible  = var.node_preemptible
     machine_type = var.node_machine_type
